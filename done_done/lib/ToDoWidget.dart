@@ -7,31 +7,34 @@ class ToDoWidget extends StatelessWidget {
   const ToDoWidget({Key? key, required this.todo}) : super(key: key);
 
   @override
-  Widget build(BuildContext context)=> Slidable(
-    key: Key(todo.id),
-      startActionPane: ActionPane(
-        motion: ScrollMotion(),
-        dismissible: DismissiblePane(onDismissed: () {}),
-        children: [
-          SlidableAction(onPressed: (_){},
-            icon:Icons.edit,
-            label: 'Edit',
-            backgroundColor:Color(0xffff8f84),
-          )
-        ],
-      ),
-      endActionPane: ActionPane(
-        motion: ScrollMotion(),
+  Widget build(BuildContext context)=> ClipRRect(
+    borderRadius: BorderRadius.circular(16),
+    child: Slidable(
+      key: Key(todo.id),
+        startActionPane: ActionPane(
+          motion: ScrollMotion(),
           dismissible: DismissiblePane(onDismissed: () {}),
-        children: [
-          SlidableAction(onPressed: (_){},
-          icon: Icons.delete,
-          label: 'Delete',
-          backgroundColor:Color(0xffff8f84),
-          )
-        ],
-      ),
-      child: buildToDo(context));
+          children: [
+            SlidableAction(onPressed: (_){},
+              icon:Icons.edit,
+              label: 'Edit',
+              backgroundColor:Color(0xffff8f84),
+            )
+          ],
+        ),
+        endActionPane: ActionPane(
+          motion: ScrollMotion(),
+            dismissible: DismissiblePane(onDismissed: () {}),
+          children: [
+            SlidableAction(onPressed: (_){},
+            icon: Icons.delete,
+            label: 'Delete',
+            backgroundColor:Color(0xffff8f84),
+            )
+          ],
+        ),
+        child: buildToDo(context)),
+  );
   Widget buildToDo(BuildContext context)=> Container(
     padding: EdgeInsets.all(10),
     color: Color(0xfffaded6),
