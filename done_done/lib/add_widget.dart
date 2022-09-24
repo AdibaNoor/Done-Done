@@ -13,7 +13,7 @@ class add_widget extends StatefulWidget {
 
 class _add_widgetState extends State<add_widget> {
   String title ='';
-  String descrption='';
+  String description='';
   @override
   Widget build(BuildContext context) => AlertDialog(
     content: Column(
@@ -24,7 +24,7 @@ class _add_widgetState extends State<add_widget> {
         SizedBox(height: 10,),
         add_form_widget(
           onChangedTitle: (title) => setState(() => this.title = title),
-          onChangedDescription:(descrption) => setState(()=> this.descrption = descrption),
+          onChangedDescription:(description) => setState(()=> this.description = description),
           onSaveTodo: (){},
         ),
 
